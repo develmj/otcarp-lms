@@ -32,3 +32,21 @@
 *** id
 *** rack_id
 *** library_id
+*** row_number
+** Library Collection
+*** book_id
+*** library_id
+*** total_copies
+*** checked_out
+*** lost_copies
+*** rack_id
+*** row_id
+** Borrower
+*** id
+*** first name
+*** last name
+*** mobile_number
+*** address
+*** city
+*** state
+*** country
