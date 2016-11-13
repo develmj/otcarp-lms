@@ -992,3 +992,408 @@ WHERE fk.referenced_column_name is not null
   [1m[36mAuthor Load (0.6ms)[0m  [1mSELECT `authors`.* FROM `authors` INNER JOIN `author_books` ON `authors`.`id` = `author_books`.`author_id` WHERE `author_books`.`book_id` = 1[0m
   [1m[35mLibrary Load (0.2ms)[0m  SELECT  `libraries`.* FROM `libraries`  ORDER BY `libraries`.`id` DESC LIMIT 1
   [1m[36mBook Load (0.2ms)[0m  [1mSELECT `books`.* FROM `books` INNER JOIN `collections` ON `books`.`id` = `collections`.`book_id` WHERE `collections`.`library_id` = 2[0m
+
+
+Started GET "/" for 192.168.5.1 at 2016-11-13 05:53:51 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/2.0.0/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 30ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/admin/get_books" for 192.168.5.1 at 2016-11-13 05:54:02 +0000
+
+ActionController::RoutingError (No route matches [GET] "/v1/admin/get_books"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (52.3ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (116.1ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:01:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by V1::Admin::BooksController#get_books as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `respond_to' for #<V1::Admin::BooksController:0x00000004595ca0>):
+  app/controllers/v1/admin/books_controller.rb:5:in `get_books'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.8ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:03:39 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (uninitialized constant V1::ADMIN::AdminBaseController):
+  app/controllers/v1/admin/books_controller.rb:3:in `<module:Admin>'
+  app/controllers/v1/admin/books_controller.rb:2:in `<module:V1>'
+  app/controllers/v1/admin/books_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (16.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.3ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:05:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+TypeError (superclass must be a Class (Module given)):
+  app/controllers/v1/admin/books_controller.rb:3:in `<module:Admin>'
+  app/controllers/v1/admin/books_controller.rb:2:in `<module:V1>'
+  app/controllers/v1/admin/books_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.4ms)
+
+
+Started GET "/api/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:07:46 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/api/v1/admin/books/get_books"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (19.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (53.3ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:08:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (uninitialized constant API::V1::ADMIN::AdminBaseController):
+  app/controllers/api/v1/admin/books_controller.rb:4:in `<module:Admin>'
+  app/controllers/api/v1/admin/books_controller.rb:3:in `<module:V1>'
+  app/controllers/api/v1/admin/books_controller.rb:2:in `<module:Api>'
+  app/controllers/api/v1/admin/books_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (19.7ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (60.3ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:11:52 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (uninitialized constant ActionController::RespondWith):
+  app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/api/v1/admin/admin_base_controller.rb:1:in `<top (required)>'
+  app/controllers/api/v1/admin/books_controller.rb:4:in `<module:Admin>'
+  app/controllers/api/v1/admin/books_controller.rb:3:in `<module:V1>'
+  app/controllers/api/v1/admin/books_controller.rb:2:in `<module:Api>'
+  app/controllers/api/v1/admin/books_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (20.8ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (56.5ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:13:52 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::Admin::BooksController#get_books as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (To respond to a custom format, register it as a MIME type first: http://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  app/controllers/api/v1/admin/books_controller.rb:7:in `block in get_books'
+  app/controllers/api/v1/admin/books_controller.rb:6:in `get_books'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.3ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:54:04 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (undefined method `respond_to' for ApplicationController:Class):
+  app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/api/v1/admin/admin_base_controller.rb:1:in `<top (required)>'
+  app/controllers/api/v1/admin/books_controller.rb:4:in `<module:Admin>'
+  app/controllers/api/v1/admin/books_controller.rb:3:in `<module:V1>'
+  app/controllers/api/v1/admin/books_controller.rb:2:in `<module:Api>'
+  app/controllers/api/v1/admin/books_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (16.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.8ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:55:08 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::Admin::BooksController#get_books as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `respond_to' for #<Api::V1::Admin::BooksController:0x00000004512918>):
+  app/controllers/api/v1/admin/books_controller.rb:6:in `get_books'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.9ms)
+
+
+Started GET "/v1/admin/books/get_books" for 192.168.5.1 at 2016-11-13 06:59:36 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::Admin::BooksController#get_books as HTML
+  [1m[35mBook Load (0.3ms)[0m  SELECT `books`.* FROM `books`
+Completed 200 OK in 62ms (Views: 12.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/v1/admin/books/get_book/1" for 192.168.5.1 at 2016-11-13 07:01:00 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/v1/admin/books/get_book/1"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (49.1ms)
+
+
+Started GET "/v1/admin/books/get_book?id=1" for 192.168.5.1 at 2016-11-13 07:02:04 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::Admin::BooksController#get_book as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `required' for #<Api::V1::Admin::BooksController:0x00000005207b50>):
+  app/controllers/api/v1/admin/books_controller.rb:11:in `get_book'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (38.0ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.8ms)
+
+
+Started GET "/v1/admin/books/get_book?id=1" for 192.168.5.1 at 2016-11-13 07:03:41 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::V1::Admin::BooksController#get_book as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.8ms)[0m  SELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1
+Completed 200 OK in 123ms (Views: 1.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/v1/admin/books/get_book?id=2" for 192.168.5.1 at 2016-11-13 07:03:45 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::V1::Admin::BooksController#get_book as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=2):
+  app/controllers/api/v1/admin/books_controller.rb:12:in `get_book'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.9ms)
+
+
+Started GET "/v1/admin/books/get_book/1" for 192.168.5.1 at 2016-11-13 07:03:58 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/v1/admin/books/get_book/1"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.5ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (48.0ms)
+
+
+Started GET "/v1/admin/books/get_book/id/1" for 192.168.5.1 at 2016-11-13 07:04:03 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/v1/admin/books/get_book/id/1"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.0.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.2ms)
+
+
+Started GET "/v1/admin/books/get_book?id=1" for 192.168.5.1 at 2016-11-13 07:04:08 +0000
+Cannot render console from 192.168.5.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::V1::Admin::BooksController#get_book as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `books` (`name`, `isbn13`, `cover_type`, `language`, `publisher`, `genre`, `category`, `created_at`, `updated_at`) VALUES ('name', 'isbn13', 'cover_type', 'language', 'publisher', 'genre', 'category', '2016-11-13 09:03:51', '2016-11-13 09:03:51')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mBook Load (0.3ms)[0m  SELECT  `books`.* FROM `books`  ORDER BY `books`.`id` DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `books` (`name`, `isbn13`, `cover_type`, `language`, `publisher`, `published_year`, `genre`, `category`, `created_at`, `updated_at`) VALUES ('name', 'isbn13', 'cover_type', 'language', 'publisher', '2016-02-02 02:02:02', 'genre', 'category', '2016-11-13 09:04:43', '2016-11-13 09:04:43')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mBook Load (1.4ms)[0m  SELECT  `books`.* FROM `books`  ORDER BY `books`.`id` DESC LIMIT 1
+  [1m[36mBook Load (0.4ms)[0m  [1mSELECT  `books`.* FROM `books`  ORDER BY `books`.`id` DESC LIMIT 1[0m
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT  `authors`.* FROM `authors`  ORDER BY `authors`.`id` DESC LIMIT 1
+  [1m[36mBook Load (0.6ms)[0m  [1mSELECT  `books`.* FROM `books` WHERE `books`.`name` = 'mj' LIMIT 1[0m
+  [1m[35mBook Load (0.4ms)[0m  SELECT  `books`.* FROM `books` WHERE `books`.`name` = 'mj' LIMIT 1
+  [1m[36mAuthor Load (0.4ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`first_name` = 'mj' LIMIT 1[0m
+  [1m[35mAuthor Load (0.5ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`firstname` = 'mj' AND `authors`.`lastname` = 'mj' LIMIT 1
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`first_name` = 'mj' AND `authors`.`last_name` = 'mj' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `authors` (`first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('mj', 'mj', '2016-11-13 14:46:21', '2016-11-13 14:46:21')[0m
+  [1m[35m (24.5ms)[0m  COMMIT
+  [1m[36mAuthor Load (0.7ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`first_name` = 'mj' AND `authors`.`last_name` = 'mj' LIMIT 1[0m
+  [1m[35mAuthor Load (0.3ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`first_name` = 'mj' AND `authors`.`last_name` = 'mj' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mDELETE FROM `authors`[0m
+  [1m[35mAuthor Load (0.4ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`first_name` = 'mj' AND `authors`.`last_name` = 'mj' AND `authors`.`country_of_origin` IS NULL AND `authors`.`mini_bio` IS NULL AND `authors`.`wiki_link` IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `authors` (`first_name`, `last_name`, `created_at`, `updated_at`) VALUES ('mj', 'mj', '2016-11-13 14:46:59', '2016-11-13 14:46:59')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mAuthor Load (0.4ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`first_name` = 'mj' AND `authors`.`last_name` = 'mj' AND `authors`.`country_of_origin` IS NULL AND `authors`.`mini_bio` IS NULL AND `authors`.`wiki_link` IS NULL LIMIT 1
+  [1m[36mAuthor Load (1.0ms)[0m  [1mSELECT `authors`.* FROM `authors`[0m
