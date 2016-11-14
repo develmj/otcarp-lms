@@ -5,11 +5,10 @@ Rails.application.routes.draw do
         collection do
           get 'get_books'
           get 'get_book'
+          post 'add_book'
+          get 'find_books'
         end
       end
     end
-
   end
-
-
 end

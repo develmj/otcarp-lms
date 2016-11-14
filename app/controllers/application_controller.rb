@@ -12,4 +12,8 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def show_response(**args)
+    render json: args
+  end
+
 end
