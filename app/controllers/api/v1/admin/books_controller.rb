@@ -4,24 +4,25 @@ module Api
       class BooksController < API::V1::ADMIN::AdminBaseController
 
         def get_all_books
-          render json: { books: Book.all }
+          show_response(status: true, books: Book.all )
         end
 
         def get_book
           required(params, :id)
-          resp = Book.find(params[:id])
-          show_response(status: true, book: book)
+          show_response(status: true, book: Book.find(params[:id]))
         end
 
         def add_book
           required(params, :name, :isbn13, :cover_type, :language, :publisher, :published_year, :genre, :category, :author_first_name, :author_last_name)
-          resp = Book.new_entry(params)
-          show_response(resp)
+          show_response(Book.new_entry(params))
         end
 
         def find_books
-          resp = Book.find_books(params)
-          render json: { response: resp }
+          show_response(Book.find_books(params))
+        end
+
+        def get_authors
+          show_response(Book.get_authors(params))
         end
 
       end

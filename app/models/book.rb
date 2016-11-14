@@ -3,12 +3,16 @@ class Book < ActiveRecord::Base
   has_many :authors, :through => :author_books
   has_and_belongs_to_many :libraries, join_table: :collections
 
+  def self.is_book?(obj)
+    obj.class.name == "Book"
+  end
+
   def self.add_author(params, book_obj = nil)
     attr_list = [:book_name, :author_first_name, :author_last_name]
     if (params.to_a.empty? or (attr_list.map {|attr| params[attr] }.compact.count <  attr_list.count)) and not book_obj
       return { status: nil, msg: "All parameters need to be given" }
     else
-      if book_obj.class.name == "Book"
+      if Book.is_book?(book_obj)
         author = Author.find_or_create_author(params)
         book_obj.authors << author unless book_obj.authors.include?(author)
         return { status: true, msg: "Author #{params[:author_first_name]} has been added to book #{book_obj.try(&:name)}" }
@@ -45,7 +49,18 @@ class Book < ActiveRecord::Base
     return { status: nil, msg: "Invalid search parameters given!" } if attr_map.empty?
 
     payload = Book.where(attr_map)
-    { status: true, msg: "#{payload.to_a.count} Book(s) found!", payload: payload }
+    return { status: nil,  msg: "No book found!" } if payload.empty?
+    return { status: true, msg: "#{payload.to_a.count} Book(s) found!", payload: payload }
+  end
+
+  def self.get_authors(params, book_obj = nil)
+    if Book.is_book?(book_obj)
+      return { status: true, msg: "Author(s) of the book #{book_obj.try(&:name)}:", payload: book_obj.authors.to_a.map(&:attributes) }
+    else
+      resp = Book.find_books(params)
+      return { status: nil,  msg: "No book found! Hence no authors!" } unless resp[:status]
+      return { status: true, msg: "Authors for the books found:", payload: resp[:payload].reduce({}) { |acc, b| acc[b.try(&:name)] = b.try(&:authors).to_a.map(&:attributes); acc } }
+    end
   end
 
 end
