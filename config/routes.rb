@@ -4,9 +4,9 @@ Rails.application.routes.draw do
       resources :books do
         collection do
           get 'get_books'
-          get 'get_book'
-          post 'add_book'
           get 'find_books'
+          get 'get_all_books'
+          post 'add_book'
         end
       end
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
       resources :library do
         collection do
+          get 'get_all_libraries'
           post 'add_library'
         end
       end
