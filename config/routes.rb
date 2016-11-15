@@ -9,6 +9,20 @@ Rails.application.routes.draw do
           get 'find_books'
         end
       end
+
+      resources :authors do
+        collection do
+          get 'get_all_authors'
+          post 'add_author'
+        end
+      end
+
+      resources :library do
+        collection do
+          post 'add_library'
+        end
+      end
+
     end
   end
 end
